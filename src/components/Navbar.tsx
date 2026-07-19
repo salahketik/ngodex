@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MessageSquare } from 'lucide-react';
 import { motion } from 'motion/react';
+import logoImg from '../assets/images/logo.jpg';
 
 interface NavbarProps {
   activeRoute: string;
@@ -58,7 +59,7 @@ export default function Navbar({ activeRoute, onRoute }: NavbarProps) {
             className="flex items-center space-x-2.5 group cursor-pointer"
           >
             <div className="overflow-hidden rounded-xl shadow-md shadow-blue-600/15 w-10 h-10 border border-blue-400/20 group-hover:scale-105 transition-transform duration-200">
-              <img src="/src/assets/images/logo.jpg" alt="NGODEX Logo" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+              <img src={logoImg} alt="NGODEX Logo" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
             </div>
             <div>
               <div className="flex items-center space-x-1">
