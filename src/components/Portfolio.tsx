@@ -135,50 +135,52 @@ export default function Portfolio() {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative"
+                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl relative"
               >
-                {/* Close Button */}
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  className="absolute top-4 right-4 z-10 p-2 bg-slate-950/80 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-white rounded-xl transition-all active:scale-95 cursor-pointer"
-                >
-                  <X size={18} />
-                </button>
+                {/* Header with Title and Category, and Close Button */}
+                <div className="p-5 sm:p-6 pb-0 flex justify-between items-start">
+                  <div className="flex-1 pr-6">
+                    <span className="text-[10px] font-mono font-bold bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 border border-blue-500/20 px-2 py-0.5 rounded-md uppercase tracking-wider">
+                      {selectedProject.category.replace('-', ' ')}
+                    </span>
+                    <h3 className="text-lg sm:text-xl font-poppins font-bold text-slate-900 dark:text-white mt-2">
+                      {selectedProject.title}
+                    </h3>
+                  </div>
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="p-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-750 text-slate-500 dark:text-slate-400 rounded-lg transition-all active:scale-95 cursor-pointer flex-shrink-0"
+                  >
+                    <X size={16} />
+                  </button>
+                </div>
  
-                {/* Banner Image */}
-                <div className="relative aspect-video bg-slate-950">
-                  <img
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent" />
+                {/* Compact Image */}
+                <div className="px-5 sm:px-6 pt-4">
+                  <div className="relative h-36 sm:h-44 rounded-2xl overflow-hidden bg-slate-950 border border-slate-150 dark:border-slate-850">
+                    <img
+                      src={selectedProject.image}
+                      alt={selectedProject.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
  
                 {/* Info Content */}
-                <div className="p-6 sm:p-8 space-y-4">
-                  <div className="flex flex-wrap gap-2">
-                    <span className="text-xs font-mono bg-blue-900/30 text-blue-600 dark:text-blue-400 border border-blue-800/40 px-2.5 py-0.5 rounded-lg font-semibold uppercase tracking-wider">
-                      {selectedProject.category.replace('-', ' ')}
-                    </span>
-                  </div>
- 
-                  <h3 className="text-xl sm:text-2xl font-poppins font-bold text-slate-900 dark:text-white">
-                    {selectedProject.title}
-                  </h3>
- 
-                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                <div className="p-5 sm:p-6 pt-2 space-y-4">
+                  <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
                     {selectedProject.description}
                   </p>
  
                   {/* Bullet points of features */}
-                  <div className="space-y-2">
-                    <h4 className="text-xs font-bold font-mono uppercase text-slate-500 dark:text-slate-400 tracking-wider">Fitur Utama Sistem:</h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div className="space-y-1.5">
+                    <h4 className="text-[10px] font-bold font-mono uppercase text-slate-400 dark:text-slate-500 tracking-wider">Fitur Utama Sistem:</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                       {selectedProject.features.map((feat) => (
-                        <div key={feat} className="flex items-start space-x-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
-                          <CheckCircle2 size={14} className="text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <div key={feat} className="flex items-start space-x-1.5 text-xs text-slate-700 dark:text-slate-300">
+                          <CheckCircle2 size={13} className="text-emerald-500 mt-0.5 flex-shrink-0" />
                           <span>{feat}</span>
                         </div>
                       ))}
@@ -186,11 +188,11 @@ export default function Portfolio() {
                   </div>
  
                   {/* Tech stack used */}
-                  <div className="space-y-2 pt-2">
-                    <h4 className="text-xs font-bold font-mono uppercase text-slate-500 dark:text-slate-400 tracking-wider">Teknologi & Library:</h4>
-                    <div className="flex flex-wrap gap-1.5">
+                  <div className="space-y-1.5">
+                    <h4 className="text-[10px] font-bold font-mono uppercase text-slate-400 dark:text-slate-500 tracking-wider">Teknologi & Library:</h4>
+                    <div className="flex flex-wrap gap-1">
                       {selectedProject.technologies.map((tech) => (
-                        <span key={tech} className="text-xs font-mono bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 text-slate-700 dark:text-slate-300 px-3 py-1 rounded-lg">
+                        <span key={tech} className="text-[10px] font-mono bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded-md">
                           {tech}
                         </span>
                       ))}
@@ -198,18 +200,18 @@ export default function Portfolio() {
                   </div>
  
                   {/* Actions inside modal */}
-                  <div className="pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row gap-3">
-                    <button
-                      onClick={() => handleWhatsappProject(selectedProject)}
-                      className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:brightness-110 text-white py-3 rounded-2xl font-bold text-center active:scale-98 transition-all shadow-md shadow-blue-500/10 cursor-pointer"
-                    >
-                      Konsultasikan Ide Sistem Ini
-                    </button>
+                  <div className="pt-4 border-t border-slate-150 dark:border-slate-800 flex items-center justify-end space-x-2">
                     <button
                       onClick={() => setSelectedProject(null)}
-                      className="bg-slate-100 hover:bg-slate-250 dark:bg-slate-800 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 py-3 rounded-2xl font-semibold px-6 active:scale-98 transition-all cursor-pointer"
+                      className="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-300 border border-slate-200/50 dark:border-slate-700 transition-all cursor-pointer"
                     >
                       Tutup
+                    </button>
+                    <button
+                      onClick={() => handleWhatsappProject(selectedProject)}
+                      className="px-5 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-blue-600 to-indigo-600 hover:brightness-110 text-white transition-all shadow-md shadow-blue-500/10 cursor-pointer"
+                    >
+                      Konsultasi Ide Ini
                     </button>
                   </div>
  
