@@ -1,0 +1,6 @@
+{
+  "name": "NGODEX",
+  "description": "Software studio dan pendampingan coding profesional. Kami membantu pengembangan website, sistem informasi, aplikasi desktop, API, revisi project, debugging, hingga konsultasi pemrograman.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
