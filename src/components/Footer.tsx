@@ -1,5 +1,6 @@
 import React from 'react';
 import { MessageSquare, Instagram, Github, ArrowUp } from 'lucide-react';
+import logoImg from '../assets/images/logo.jpg';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -48,7 +49,7 @@ export default function Footer() {
           <div className="lg:col-span-2 flex flex-col space-y-4">
             <a href="#/" className="flex items-center space-x-2.5 group">
               <div className="overflow-hidden rounded-xl shadow-md shadow-blue-600/15 w-10 h-10 border border-blue-400/20 group-hover:scale-105 transition-transform duration-200">
-                <img src="/src/assets/images/logo.jpg" alt="NGODEX Logo" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <img src={logoImg} alt="NGODEX Logo" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
               </div>
               <div className="flex items-center space-x-1">
                 <span className="font-poppins font-black text-xl tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
